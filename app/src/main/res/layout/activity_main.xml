@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/up"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#21222c"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableLayout
+            android:layout_width="316dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/aC"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:onClick="ac"
+                    android:text="AC"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textColor="#27baa0" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pnm"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="+/-"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textColor="#27baa0" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mod"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="action"
+                    android:text="%"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#27baa0" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/divide"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="action"
+                    android:text="/"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#cb5d5f" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b7"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:onClick="button"
+                    android:text="7"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b8"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="8"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b9"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="9"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mul"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="action"
+                    android:text="x"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#cb5d5f" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b4"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:onClick="button"
+                    android:text="4"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b5"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="5"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b6"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="6"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/minus"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="action"
+                    android:text="-"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#cb5d5f" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b1"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:onClick="button"
+                    android:text="1"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b2"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="2"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b3"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="3"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="action"
+                    android:text="+"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#cb5d5f" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/rev"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:onClick="button"
+                    android:text="C"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/b0"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="0"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dot"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="button"
+                    android:text="."
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#c4c4c6" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/equal"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:onClick="equal"
+                    android:text="="
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="#cb5d5f" />
+            </TableRow>
+
+        </TableLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="end"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="end"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
