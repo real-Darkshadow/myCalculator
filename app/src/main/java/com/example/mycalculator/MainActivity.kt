@@ -101,30 +101,52 @@ class MainActivity : AppCompatActivity() {
         var num = binding.textView2.text.toString()
         old = binding.textView2.text.toString()
 
-        when (buselected.id) {
-            binding.add.id -> {
-                op = "+"
-                num += "+"
+        if (num.isNotEmpty()) {
+            when (buselected.id) {
+                binding.add.id -> {
+                    if (op.isEmpty()) {
+                        op = "+"
+                        num += "+"
+                    } else {
+                        op = "+"
+                    }
+                }
+                binding.minus.id -> {
+                    if (op.isEmpty()) {
+                        op = "-"
+                        num += "-"
+                    } else {
+                        op = "-"
+                    }
+                }
+                binding.divide.id -> {
+                    if (op.isEmpty()) {
+                        op = "/"
+                        num += "/"
+                    } else {
+                        op = "/"
+                    }
+                }
+                binding.mod.id -> {
+                    if (op.isEmpty()) {
+                        op = "%"
+                        num += "%"
+                    } else {
+                        op = "%"
+                    }
+                }
+                binding.mul.id -> {
+                    if (op.isEmpty()) {
+                        op = "*"
+                        num += "x"
+                    } else {
+                        op = "*"
+                    }
+                }
             }
-            binding.minus.id -> {
-                op = "-"
-                num += "-"
-            }
-            binding.divide.id -> {
-                op = "/"
-                num += "/"
-            }
-            binding.mod.id -> {
-                op = "%"
-                num += "%"
-            }
-            binding.mul.id -> {
-                op = "*"
-                num += "x"
-            }
-        }
-        binding.textView2.text = num
+            binding.textView2.text = num
 
+        }
     }
 
     var final: Double = 0.0
@@ -173,8 +195,10 @@ class MainActivity : AppCompatActivity() {
         }
         if (counter > 0) {
             binding.textView.text = final.toString()
+            final=0.0
         } else {
             binding.textView.text = fint.toString()
+            fint=0
         }
 
     }
@@ -183,6 +207,7 @@ class MainActivity : AppCompatActivity() {
         nums = ""
         old = ""
         num = ""
+        fint=0
         isnewop = false
         op = ""
         final = 0.0
