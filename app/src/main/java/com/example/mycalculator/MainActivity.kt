@@ -21,22 +21,23 @@ class MainActivity : AppCompatActivity() {
     private var isnewop = false                 //is there any new operator??
     private var nums = ""                           //NUMBER which is entered by user after 2nd operator
     private var num = ""                        // Number Shown in textView
-    private var numblck:Boolean=false               //UNBlocks Number buttons // Used so the user can't edit number shown in textview after he clicks equal
+    private var numblck: Boolean = false               //UNBlocks Number buttons // Used so the user can't edit number shown in textview after he clicks equal
 
     //Checking Which Number Has been Clicked By the user
 
     fun button(view: View) {                    // Passing view (Which is Button)
-        val buselected = view as Button             //Variable Defining View As a button For future usage
+        val buselected =
+            view as Button             //Variable Defining View As a button For future usage
         if (isnewop) {                         // if there is new operator than the nums will be 0 to get new Values by user
             nums = ""
             isnewop = false
         }
-        if(numblck){                                // Checks if numblck is true and resets  both ui texts and (old values by user, and final answers)
-            binding.textView.text=""
-            binding.textView2.text=""
-            old=""
-            fint=0
-            final=0.0
+        if (numblck) {                                // Checks if numblck is true and resets  both ui texts and (old values by user, and final answers)
+            binding.textView.text = ""
+            binding.textView2.text = ""
+            old = ""
+            fint = 0
+            final = 0.0
         }
         num = binding.textView2.text.toString()
         when (buselected.id) {
@@ -93,59 +94,67 @@ class MainActivity : AppCompatActivity() {
                     nums = "-$nums"
                 }
             }
-            binding.rev.id -> {                             // Remove last value of num when pressed back button
-                num = num.removeSuffix(num.last().toString())
-                nums = nums.removeSuffix(nums.last().toString())
-
+            binding.rev.id -> {                 // Remove last value of num when pressed back button
+                if (num.isNotEmpty() || nums.isNotEmpty()) {
+                    num = num.removeSuffix(num.last().toString())
+                    nums = nums.removeSuffix(nums.last().toString())
+                }
             }
 
         }
-        numblck=false                                     // changing numblock back to false as we now want user to enter more numbers not only a single number
+        numblck =
+            false                                     // changing numblock back to false as we now want user to enter more numbers not only a single number
         binding.textView2.text = num                          //Setting ui text to num
 
 
     }
 
-            // Checking Which Operator has User pressed
+    // Checking Which Operator has User pressed
 
     fun action(view: View) {
         val buselected = view as Button
-        isnewop = true                                 //enable us to enter new number as it will reset the nums value shown in above function
+        isnewop =
+            true                                 //enable us to enter new number as it will reset the nums value shown in above function
 
         // Checks if the user has Clicked new operator just after getting a final answer or after he has clicked equal
         // Then we set num or text of ui to the final answer
-        if (fint!=0){
-            binding.textView2.text=fint.toString()
-            fint=0
+        if (fint != 0) {
+            binding.textView2.text = fint.toString()
+            fint = 0
         }
-        if (final!=0.0){
-            binding.textView2.text=final.toString()
-            final=0.0
+        if (final != 0.0) {
+            binding.textView2.text = final.toString()
+            final = 0.0
         }
         //
 
-        var num = binding.textView2.text.toString()                 //we set num now by the help of ui text this solve both without clicked equal and after we clicked equal
+        var num =
+            binding.textView2.text.toString()                 //we set num now by the help of ui text this solve both without clicked equal and after we clicked equal
         if (old.isEmpty()) {
-            old = binding.textView2.text.toString()                     // Time to take old value which is present before new operator
+            old =
+                binding.textView2.text.toString()                     // Time to take old value which is present before new operator
         }
-        numblck=true
-        if(numblck){                             //Resets nums value to 0 as now we will take new values to add into the old
-            nums=""
-            numblck=false
+        numblck = true
+        if (numblck) {                             //Resets nums value to 0 as now we will take new values to add into the old
+            nums = ""
+            numblck = false
         }
-        binding.textView.text =""
+        binding.textView.text = ""
         if (num.isNotEmpty()) {
             when (buselected.id) {
                 binding.add.id -> {
                     if (op.isEmpty()) {
                         op = "+"
                         num += "+"
-                        nums=""
+                        nums = ""
                     } else {
-                        if(num.last().toString()==op){                         //if the user has clicked different operator after clicking an operator thn we delete the previous
-                            num=num.removeSuffix(op)                             //operator from num and update it with new operator viceversa with op
-                            op="+"
-                            num+="+"
+                        if (num.last()
+                                .toString() == op
+                        ) {                         //if the user has clicked different operator after clicking an operator thn we delete the previous
+                            num =
+                                num.removeSuffix(op)                             //operator from num and update it with new operator viceversa with op
+                            op = "+"
+                            num += "+"
                         }
                     }
                 }
@@ -153,12 +162,12 @@ class MainActivity : AppCompatActivity() {
                     if (op.isEmpty()) {
                         op = "-"
                         num += "-"
-                        nums=""
+                        nums = ""
                     } else {
-                        if(num.last().toString()==op){
-                            num=num.removeSuffix(op)
-                            op="-"
-                            num+="-"
+                        if (num.last().toString() == op) {
+                            num = num.removeSuffix(op)
+                            op = "-"
+                            num += "-"
                         }
 
                     }
@@ -167,12 +176,12 @@ class MainActivity : AppCompatActivity() {
                     if (op.isEmpty()) {
                         op = "/"
                         num += "/"
-                        nums=""
+                        nums = ""
                     } else {
-                        if(num.last().toString()==op){
-                            num=num.removeSuffix(op)
-                            op="/"
-                            num+="/"
+                        if (num.last().toString() == op) {
+                            num = num.removeSuffix(op)
+                            op = "/"
+                            num += "/"
                         }
                     }
                 }
@@ -180,25 +189,25 @@ class MainActivity : AppCompatActivity() {
                     if (op.isEmpty()) {
                         op = "%"
                         num += "%"
-                        nums=""
+                        nums = ""
                     } else {
-                        if(num.last().toString()==op){
-                            num=num.removeSuffix(op)
-                            op="%"
-                            num+="%"
+                        if (num.last().toString() == op) {
+                            num = num.removeSuffix(op)
+                            op = "%"
+                            num += "%"
                         }
                     }
                 }
                 binding.mul.id -> {
                     if (op.isEmpty()) {
-                        op = "*"
+                        op = "x"
                         num += "x"
-                        nums=""
+                        nums = ""
                     } else {
-                        if(num.last().toString()==op){
-                            num=num.removeSuffix(op)
-                            op="*"
-                            num+="x"
+                        if (num.last().toString() == op) {
+                            num = num.removeSuffix(op)
+                            op = "x"
+                            num += "x"
                         }
                     }
                 }
@@ -209,7 +218,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-     //Equal buttons give us the final answer
+    //Equal buttons give us the final answer
 
 
     //simply check if there is float present in old or nums thn give us float value else integer values
@@ -217,9 +226,9 @@ class MainActivity : AppCompatActivity() {
     fun equal(view: View) {
         var counter = 0
         fint = 0
-        final=0.0
+        final = 0.0
         val but = view as Button
-        if(old.isEmpty()||nums.isEmpty()){
+        if (old.isEmpty() || nums.isEmpty()) {
             return
         }
         if (old.contains(".") || nums.contains(".")) {
@@ -230,7 +239,7 @@ class MainActivity : AppCompatActivity() {
                 "-" -> {
                     final = old.toDouble() - nums.toDouble()
                 }
-                "*" -> {
+                "x" -> {
                     final = old.toDouble() * nums.toDouble()
                 }
                 "/" -> {
@@ -249,7 +258,7 @@ class MainActivity : AppCompatActivity() {
                 "-" -> {
                     fint = old.toInt() - nums.toInt()
                 }
-                "*" -> {
+                "x" -> {
                     fint = old.toInt() * nums.toInt()
                 }
                 "/" -> {
@@ -263,16 +272,16 @@ class MainActivity : AppCompatActivity() {
         }
         if (counter > 0) {                            //Checks if float or int to show as answer and resets variables(Mentioned Below), sets numblck true to prevent changes in num
             binding.textView.text = final.toString()
-            old=""
-            op=""
-            nums=""
-            numblck=true
+            old = ""
+            op = ""
+            nums = ""
+            numblck = true
         } else {
             binding.textView.text = fint.toString()
-            old=""
-            op=""
-            nums=""
-            numblck=true
+            old = ""
+            op = ""
+            nums = ""
+            numblck = true
         }
 
     }
@@ -283,7 +292,7 @@ class MainActivity : AppCompatActivity() {
         num = ""
         fint = 0
         isnewop = false
-        numblck=false
+        numblck = false
         op = ""
         final = 0.0
         binding.textView.text = nums
