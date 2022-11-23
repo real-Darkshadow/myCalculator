@@ -2,12 +2,9 @@ package com.example.mycalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import com.example.mycalculator.databinding.ActivityMainBinding
-import java.util.zip.Inflater
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -16,17 +13,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-    var final: Double = 0.0
-    var fint: Int = 0
-    var op = ""
-    var old = ""
-    var isnewop = false
-    var nums = ""
-    var num = ""
-    var numblck:Boolean=false
+    private var final: Double = 0.0
+    private var fint: Int = 0
+    private var op = ""
+    private var old = ""
+    private var isnewop = false
+    private var nums = ""
+    private var num = ""
+    private var numblck:Boolean=false
     fun button(view: View) {
         val buselected = view as Button
-        if (isnewop == true) {
+        if (isnewop) {
             nums = ""
             isnewop = false
         }
