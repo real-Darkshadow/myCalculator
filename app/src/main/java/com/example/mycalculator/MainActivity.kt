@@ -99,8 +99,10 @@ class MainActivity : AppCompatActivity() {
         val buselected = view as Button
         isnewop = true
         var num = binding.textView2.text.toString()
-        old = binding.textView2.text.toString()
-
+        if (old.isEmpty()) {
+            old = binding.textView2.text.toString()
+        }
+        binding.textView.text =""
         if (num.isNotEmpty()) {
             when (buselected.id) {
                 binding.add.id -> {
@@ -108,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                         op = "+"
                         num += "+"
                     } else {
-                        op = "+"
+                        return
                     }
                 }
                 binding.minus.id -> {
@@ -195,10 +197,14 @@ class MainActivity : AppCompatActivity() {
         }
         if (counter > 0) {
             binding.textView.text = final.toString()
-            final=0.0
+            final = 0.0
+            old=final.toString()
         } else {
             binding.textView.text = fint.toString()
-            fint=0
+            binding.textView2.text=fint.toString()
+            old=""
+            op=""
+            fint = 0
         }
 
     }
@@ -207,7 +213,7 @@ class MainActivity : AppCompatActivity() {
         nums = ""
         old = ""
         num = ""
-        fint=0
+        fint = 0
         isnewop = false
         op = ""
         final = 0.0
