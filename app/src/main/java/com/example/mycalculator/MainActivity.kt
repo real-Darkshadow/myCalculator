@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-    var todo:String= TODO("have to implement events in continuation ")
     var final: Double = 0.0
     var fint: Int = 0
     var op = ""
@@ -35,6 +34,8 @@ class MainActivity : AppCompatActivity() {
             binding.textView.text=""
             binding.textView2.text=""
             old=""
+            fint=0
+            final=0.0
         }
         num = binding.textView2.text.toString()
         when (buselected.id) {
@@ -134,7 +135,11 @@ class MainActivity : AppCompatActivity() {
                         num += "+"
                         nums=""
                     } else {
-                        return
+                        if(num.last().toString()==op){
+                            num=num.removeSuffix(op)
+                            op="+"
+                            num+="+"
+                        }
                     }
                 }
                 binding.minus.id -> {
@@ -143,7 +148,12 @@ class MainActivity : AppCompatActivity() {
                         num += "-"
                         nums=""
                     } else {
-                        return
+                        if(num.last().toString()==op){
+                            num=num.removeSuffix(op)
+                            op="-"
+                            num+="-"
+                        }
+
                     }
                 }
                 binding.divide.id -> {
@@ -152,7 +162,11 @@ class MainActivity : AppCompatActivity() {
                         num += "/"
                         nums=""
                     } else {
-                        return
+                        if(num.last().toString()==op){
+                            num=num.removeSuffix(op)
+                            op="/"
+                            num+="/"
+                        }
                     }
                 }
                 binding.mod.id -> {
@@ -161,7 +175,11 @@ class MainActivity : AppCompatActivity() {
                         num += "%"
                         nums=""
                     } else {
-                        return
+                        if(num.last().toString()==op){
+                            num=num.removeSuffix(op)
+                            op="%"
+                            num+="%"
+                        }
                     }
                 }
                 binding.mul.id -> {
@@ -170,7 +188,11 @@ class MainActivity : AppCompatActivity() {
                         num += "x"
                         nums=""
                     } else {
-                        return
+                        if(num.last().toString()==op){
+                            num=num.removeSuffix(op)
+                            op="*"
+                            num+="x"
+                        }
                     }
                 }
             }
