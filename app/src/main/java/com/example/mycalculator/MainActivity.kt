@@ -16,17 +16,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-
+    var todo:String= TODO("have to implement events in continuation ")
+    var final: Double = 0.0
+    var fint: Int = 0
+    var op = ""
+    var old = ""
+    var isnewop = false
     var nums = ""
     var num = ""
+    var numblck:Boolean=false
     fun button(view: View) {
         val buselected = view as Button
-        num = binding.textView2.text.toString()
         if (isnewop == true) {
             nums = ""
             isnewop = false
         }
-
+        if(numblck){
+            binding.textView.text=""
+            binding.textView2.text=""
+            old=""
+        }
+        num = binding.textView2.text.toString()
         when (buselected.id) {
             binding.b1.id -> {
                 num += "1"
@@ -88,19 +98,32 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        numblck=false
         binding.textView2.text = num
+
 
     }
 
-    var op = ""
-    var old = ""
-    var isnewop = false
+
     fun action(view: View) {
         val buselected = view as Button
         isnewop = true
+        if (fint!=0){
+            binding.textView2.text=fint.toString()
+            fint=0
+        }
+        if (final!=0.0){
+            binding.textView2.text=final.toString()
+            final=0.0
+        }
         var num = binding.textView2.text.toString()
         if (old.isEmpty()) {
             old = binding.textView2.text.toString()
+        }
+        numblck=true
+        if(numblck){
+            nums=""
+            numblck=false
         }
         binding.textView.text =""
         if (num.isNotEmpty()) {
@@ -109,6 +132,7 @@ class MainActivity : AppCompatActivity() {
                     if (op.isEmpty()) {
                         op = "+"
                         num += "+"
+                        nums=""
                     } else {
                         return
                     }
@@ -117,32 +141,36 @@ class MainActivity : AppCompatActivity() {
                     if (op.isEmpty()) {
                         op = "-"
                         num += "-"
+                        nums=""
                     } else {
-                        op = "-"
+                        return
                     }
                 }
                 binding.divide.id -> {
                     if (op.isEmpty()) {
                         op = "/"
                         num += "/"
+                        nums=""
                     } else {
-                        op = "/"
+                        return
                     }
                 }
                 binding.mod.id -> {
                     if (op.isEmpty()) {
                         op = "%"
                         num += "%"
+                        nums=""
                     } else {
-                        op = "%"
+                        return
                     }
                 }
                 binding.mul.id -> {
                     if (op.isEmpty()) {
                         op = "*"
                         num += "x"
+                        nums=""
                     } else {
-                        op = "*"
+                        return
                     }
                 }
             }
@@ -151,11 +179,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    var final: Double = 0.0
-    var fint: Int = 0
+
     fun equal(view: View) {
         var counter = 0
+        fint = 0
+        final=0.0
         val but = view as Button
+        if(old.isEmpty()||nums.isEmpty()){
+            return
+        }
         if (old.contains(".") || nums.contains(".")) {
             when (op) {
                 "+" -> {
@@ -197,14 +229,16 @@ class MainActivity : AppCompatActivity() {
         }
         if (counter > 0) {
             binding.textView.text = final.toString()
-            final = 0.0
-            old=final.toString()
-        } else {
-            binding.textView.text = fint.toString()
-            binding.textView2.text=fint.toString()
             old=""
             op=""
-            fint = 0
+            nums=""
+            numblck=true
+        } else {
+            binding.textView.text = fint.toString()
+            old=""
+            op=""
+            nums=""
+            numblck=true
         }
 
     }
@@ -215,6 +249,7 @@ class MainActivity : AppCompatActivity() {
         num = ""
         fint = 0
         isnewop = false
+        numblck=false
         op = ""
         final = 0.0
         binding.textView.text = nums
